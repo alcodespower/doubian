@@ -4,6 +4,7 @@
         "pages/doubian/index",
         "pages/doubian/item",
         "pages/doubian/list",
+        "pages/doubian/search",
         
         
         "pages/doubian/splash",
