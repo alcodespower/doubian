@@ -6,7 +6,6 @@ Page({
     },
     retrieveData() {
         let app = getApp()
-
         var promises = this.data.boards.map(function(board) {
             return app.request(`http://api.douban.com/v2/movie/${board.key}?apikey=0df993c66c0c636e29ecbb5344252a4a&start=0&count=10`)
                 .then(function(d) {
@@ -74,7 +73,13 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function() {
-
+      wx.showLoading({
+        title: '加载中',
+      })
+      this.retrieveData().then(() => {
+        wx.stopPullDownRefresh()
+        wx.hideLoading()
+      })
     },
 
     /**

@@ -21,7 +21,7 @@
       </view>
     </view>
     <view class="weui-loadmore" wx:if="{{  total > page  }}">
-      <view class="weui-loadmore__tips">继续向下滑动加载更多内容</view>
+      <view class="weui-media-box__info">继续向下滑动加载更多内容</view>
     </view>
   </scroll-view>
 </template>

@@ -6,7 +6,7 @@ Page({
    */
   data: {
     type: 'coming_soon',
-    page: 1,
+    page: 0,
     size: 20,
     total: 1,
     movies: []
@@ -26,9 +26,11 @@ Page({
     .then(res => {
       if (res.subjects.length) {
         let movies = this.data.movies.concat(res.subjects)
+        let total = Math.floor(res.total / this.data.size)
         this.setData({
           movies: movies,
-          total: res.total
+          total: total,
+          page: this.data.page 
           })
           wx.setNavigationBarTitle({
             title: res.title,
